@@ -1,0 +1,157 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>vim-ping-cursor by cyphactor</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>vim-ping-cursor</h1>
+        <p>Vim plugin to help you quickly locate the cursor position</p>
+
+        <p class="view"><a href="https://github.com/cyphactor/vim-ping-cursor">View the Project on GitHub <small>cyphactor/vim-ping-cursor</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/cyphactor/vim-ping-cursor/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/cyphactor/vim-ping-cursor/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/cyphactor/vim-ping-cursor">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>ping-cursor.vim</h1>
+
+<p><em>Shedding light on your cursor location when you have lost it in the muck</em></p>
+
+<p><img src="http://www.evernote.com/shard/s78/sh/27d7c347-c82e-499e-ae3d-7cc9e62e006f/010c66370987f9ccf8f1fe7cc628a9f6/deep/0/Screenshot%205/8/13%2011:10%20PM.png" alt=""></p>
+
+<h2>What it provides?</h2>
+
+<p>This plugin provides a user-command called <code>PingCursor</code> which illuminates the
+current location of the cursor temporarily so that you can easily find it.
+Please see the <em>Configuration</em> section for details on how best to utilize the
+<code>PingCursor</code> command.</p>
+
+<h2>Installation</h2>
+
+<p>If you don't have a preferred installation method, I recommend installing
+<a href="https://github.com/tpope/vim-pathogen">pathogen.vim</a> and using it in
+combination with <a href="http://git-scm.com/book/en/Git-Tools-Submodules">git
+submodules</a> as describe in
+this <a href="http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/">Vimcast - Synchronizing plugins with git submodules and
+pathogen</a>.</p>
+
+<p>If your installation method is the above recommended one, it should be as
+simple as running the following commands:</p>
+
+<pre><code>cd ~/.vim/
+git submodule add git@github.com:cyphactor/vim-ping-cursor.git bundle/vim-ping-cursor
+git add .
+git commit -m "Added vim-ping-cursor plugin to my setup."
+</code></pre>
+
+<p>If you are using another method, you are on your own. I have been told that
+this plugin is compatible with <a href="http://github.com/gmarik/vundle">Vundle</a>
+though I have not tested it myself.</p>
+
+<h2>Configuration</h2>
+
+<p>The recommended configuration for this plugin is to simply map a key combo to
+run the <code>PingCursor</code> command for you. This can easily be done by adding the
+following to your <code>~/.vimrc</code>.</p>
+
+<pre><code>nnoremap &lt;leader&gt;p :PingCursor&lt;cr&gt;
+</code></pre>
+
+<p>In the above example I map my normal mode <code>&lt;leader&gt;p</code> key combo to execute the
+<code>PingCursor</code> command, in turn highlighting the current location of my cursor
+momentarily.</p>
+
+<p>You can of course map this command anyway you like, or even choose not to map
+it and just execute the command as follows when you need it.</p>
+
+<pre><code>:PingCursor&lt;cr&gt;
+</code></pre>
+
+<h2>Why I Built This</h2>
+
+<h3>Initial Impetus</h3>
+
+<p>Let me start out by explaining a scenario that happens to me at work on a
+relatively regular basis. I often find myself working deep in the ticket of
+code, when all of the sudden I am distracted by another co-worker asking a
+question or simply making some noise. I found not being able to find my cursor
+quickly frustrating.</p>
+
+<h3>First Attempt</h3>
+
+<p>So, I thought to myself, I wonder if <a href="http://www.vim.org/">Vim</a> has cursor row
+highlighting or possibly even cursor column highlighting. Sure enough
+<a href="http://www.vim.org/">Vim</a> has both and enabling them was as simple as setting
+the following in my <code>.vimrc</code>.</p>
+
+<pre><code>set cursorline
+set cursorcolumn
+</code></pre>
+
+<h3>The Problem</h3>
+
+<p>It turns out, the <code>cursorcolumn</code> option when enabled causes the full screen to
+redraw. You might be thinking to yourself, that should not be a problem, I
+have a very fast machine and it is just some text. I am sorry to inform you
+that you are wrong.  It turns out that redrawing the full screen is quite
+costly in <a href="http://www.vim.org/">Vim</a>. More importently redrawing the full
+screen interacts with lots of other features like <em>cursor movement</em>, <em>Ctrl-p
+based completion</em>, and many others. This means that if you have cursor
+highlighting on and use any of those features your <a href="http://www.vim.org/">Vim</a>
+performance will tank during those operations.</p>
+
+<h3>The Solution</h3>
+
+<p>The following are a number of threads, blogs, etc. where I found people
+discussing this issue and trying to come up with work arounds for this issue.</p>
+
+<ul>
+<li><a href="http://vim.1045645.n5.nabble.com/Vim-7-slows-down-when-highlighting-cursor-line-td1148280.html">http://vim.1045645.n5.nabble.com/Vim-7-slows-down-when-highlighting-cursor-line-td1148280.html</a></li>
+<li><a href="https://gist.github.com/pera/2624765">https://gist.github.com/pera/2624765</a></li>
+<li><a href="http://briancarper.net/blog/590/cursorcolumn--cursorline-slowdown">http://briancarper.net/blog/590/cursorcolumn--cursorline-slowdown</a></li>
+</ul><p>After testing out a number of these work arounds I finally ended up deciding
+to use the cursor pinging solution described in <a href="http://briancarper.net/blog/590/cursorcolumn--cursorline-slowdown">Brian Caprer's blog
+post</a> and
+create a <a href="http://www.vim.org/">Vim</a> plugin so other people could easily obtain
+this work around.</p>
+
+<h2>Credits</h2>
+
+<p>Most of the credit here should go to Brian Carper because he provided a very
+valuable <a href="http://briancarper.net/blog/590/cursorcolumn--cursorline-slowdown">blog
+post</a> that
+I used as the basis for this vim plugin.</p>
+
+<p>Credit must also go out to all the others out there that struggled with this
+issue as I did and dug in to <a href="http://www.vim.org/">Vim</a> enough to understand
+what was actually happening.</p>
+
+<h2>License</h2>
+
+<p>Copyright (c) Andrew De Ponte. Distributed under the same terms as Vim itself.
+See <code>:help license</code>.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/cyphactor">cyphactor</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
