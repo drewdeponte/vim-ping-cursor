@@ -54,7 +54,7 @@ it and just execute the command as follows when you need it.
 ### Initial Impetus
 
 Let me start out by explaining a scenario that happens to me at work on a
-relatively regular basis. I often find myself working deep in the ticket of
+relatively regular basis. I often find myself working deep in the thicket of
 code, when all of the sudden I am distracted by another co-worker asking a
 question or simply making some noise. I found not being able to find my cursor
 quickly frustrating.
