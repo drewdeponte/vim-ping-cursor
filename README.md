@@ -2,7 +2,7 @@
 
 *Shedding light on your cursor location when you have lost it in the muck*
 
-![](http://www.evernote.com/shard/s78/sh/27d7c347-c82e-499e-ae3d-7cc9e62e006f/010c66370987f9ccf8f1fe7cc628a9f6/deep/0/Screenshot%205/8/13%2011:10%20PM.png)
+![Screenshot of the Action](http://andrewdeponte.com/vim-ping-cursor/images/vim-ping-cursor_screenshot.png)
 
 ## What it provides?
 
