@@ -1,0 +1,36 @@
+*ping-cursor.txt* Vim plugin to help you quickly locate the cursor position
+
+Author: Andrew De Ponte <http://andrewdeponte.com> <http://github.com/cyphactor>
+License: Same terms as Vim itself (see |license|)
+
+This plugin is only available if 'compatible' is not set.
+
+INTRODUCTION                                    *ping-cursor*
+
+The Vim ping-cursor plugin is a plugin designed to help you quickly find your
+cursor postion when you have lost it. This is especially useful when you are
+in the middle of a task, are interrupted, and then have to find where you left
+off. When the |ping-cursor-commands| is used it momentarily highlights the row
+and column of the cursor so that you can easily see its location.
+
+COMMANDS                                        *ping-cursor-commands*
+
+                                                *ping-cursor-:PingCursor*
+:PingCursor           Trigger a momentary highlight of the cursor location so
+                      that it can be located 
+
+MAPPINGS                                        *ping-cursor-mappings*
+
+This plugin does not automatically define any mappings. However, we do
+recommend the following mapping.
+
+nnoremap <leader>p :PingCursor<cr>
+
+The above mapping would make it so that <leader>p when pressed would execute
+the :PingCursor command.
+
+ABOUT                                           *ping-cursor-about*
+
+Grab the latest version, report a bug, or contribute on GitHub:
+
+http://github.com/cyphactor/vim-ping-cursor
