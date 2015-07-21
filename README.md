@@ -2,7 +2,7 @@
 
 *Shedding light on your cursor location when you have lost it in the muck*
 
-![Screenshot of the Action](http://andrewdeponte.com/vim-ping-cursor/images/vim-ping-cursor_screenshot.png)
+![Screenshot of the Action](/images/vim-ping-cursor_screenshot.png?raw=true)
 
 ## What it provides?
 
