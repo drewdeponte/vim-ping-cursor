@@ -13,24 +13,15 @@ Please see the *Configuration* section for details on how best to utilize the
 
 ## Installation
 
-If you don't have a preferred installation method, I recommend installing
-[pathogen.vim](https://github.com/tpope/vim-pathogen) and using it in
-combination with [git
-submodules](http://git-scm.com/book/en/Git-Tools-Submodules) as describe in
-this [Vimcast - Synchronizing plugins with git submodules and
-pathogen](http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/).
-
-If your installation method is the above recommended one, it should be as
-simple as running the following commands:
+The following is the recommended approach using the vim8's built in package
+management. If you aren't using vim8 then upgrade to get the latest goodness.
 
     cd ~/.vim/
-    git submodule add git@github.com:cyphactor/vim-ping-cursor.git bundle/vim-ping-cursor
+    git submodule add https://github.com/uptech/vim-ping-cursor.git pack/bundle/start/vim-ping-cursor
     git add .
     git commit -m "Added vim-ping-cursor plugin to my setup."
 
-If you are using another method, you are on your own. I have been told that
-this plugin is compatible with [Vundle](http://github.com/gmarik/vundle)
-though I have not tested it myself.
+If you are using another method, you are on your own.
 
 ## Configuration
 
