@@ -8,7 +8,7 @@
 
 This plugin provides a user-command called `PingCursor` which illuminates the
 current location of the cursor temporarily so that you can easily find it.
-Please see the *Configuration* section for details on how best to utilize the
+Please see the *Mappings* section for details on how best to utilize the
 `PingCursor` command.
 
 ## Installation
@@ -23,11 +23,11 @@ management. If you aren't using vim8 then upgrade to get the latest goodness.
 
 If you are using another method, you are on your own.
 
-## Configuration
+## Mappings
 
-The recommended configuration for this plugin is to simply map a key combo to
-run the `PingCursor` command for you. This can easily be done by adding the
-following to your `~/.vimrc`.
+The recommended mapping for this plugin is to simply map a key combo to run the
+`PingCursor` command for you. This can easily be done by adding the following
+to your `~/.vimrc`.
 
     nnoremap <leader>p :PingCursor<cr>
 
@@ -39,6 +39,13 @@ You can of course map this command anyway you like, or even choose not to map
 it and just execute the command as follows when you need it.
 
     :PingCursor<cr>
+
+## Configuration
+
+The duration of the cursor flash can be customized in your `~/.vimrc`:
+
+    " This is the default
+    let g:ping_cursor_flash_milliseconds = 250
 
 ## Why I Built This
 

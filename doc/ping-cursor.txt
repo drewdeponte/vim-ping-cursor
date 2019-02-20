@@ -29,6 +29,13 @@ nnoremap <leader>p :PingCursor<cr>
 The above mapping would make it so that <leader>p when pressed would execute
 the :PingCursor command.
 
+CONFIGURATION                                   *ping-cursor-configuration*
+
+The duration of the cursor flash can be customized in your vimrc:
+
+ " This is the default
+ let g:ping_cursor_flash_milliseconds = 250
+
 ABOUT                                           *ping-cursor-about*
 
 Grab the latest version, report a bug, or contribute on GitHub:

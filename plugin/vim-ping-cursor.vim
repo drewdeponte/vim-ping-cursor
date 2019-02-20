@@ -10,11 +10,18 @@
 " https://gist.github.com/pera/2624765
 " http://vim.1045645.n5.nabble.com/Vim-7-slows-down-when-highlighting-cursor-line-td1148280.html
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+if !exists('g:ping_cursor_flash_milliseconds')
+  let g:ping_cursor_flash_milliseconds = 250
+endif
+
 function! s:PingCursor()
   set cursorline cursorcolumn
   redraw
-  sleep 250m
+  execute 'sleep' g:ping_cursor_flash_milliseconds . 'm'
   set nocursorline nocursorcolumn
 endfunction
+
+
 
 command PingCursor :call s:PingCursor()
